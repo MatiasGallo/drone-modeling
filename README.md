@@ -28,10 +28,13 @@ doesn't take up notable space.
             - Test: Create a destination, given a command create a destination for a drone
         - Calculate if destination is valid
             - Test: Given a destination for a drone, check if it's valid or not
-        - Correct course
+        - Bonus: Correct course
             - Test: Given an invalid destination, correct course
 
-4. Create user input
+4. Bonus: More output
+    - Add the total distance flown to the output
+
+5. Create user input
     - Simple input to assign commands
 
 ## Future Work
