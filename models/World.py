@@ -81,3 +81,6 @@ class World:
         else:
             print("CRASH IMMINENT - AUTOMATIC COURSE CORRECTION")
             drone.move(self.validdestination(destination))
+
+    def __str__(self):
+        return f"World: (x=range({dimensions.MIN_WIDTH}, {self.width}),y=range({dimensions.MIN_HEIGHT}, {self.height}),z=range({dimensions.MIN_DEPTH}, {self.depth}))"

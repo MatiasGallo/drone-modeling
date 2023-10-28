@@ -31,7 +31,10 @@ def inputValidOrder():
     return order
 
 # Create World
+print("=== Volodrone Initialising")
+print("=== Volodrone Sensor Data read.")
 world = World(10,10,10)
+print(world)
 
 #Create Drone
 drone = Drone(Coordinate(5,5,5))

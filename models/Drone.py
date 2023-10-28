@@ -4,10 +4,13 @@ class Drone:
 
     def __init__(self, coordinate):
         self.coordinate = coordinate
-        print("Drone's initial position is: " + str(self.coordinate))
+        print(self)
 
     # Moves the Drone to destination
     def move(self, destination):
         self.totalDistance = self.totalDistance + self.coordinate.dif(destination)
         self.coordinate = destination
-        print("Drone's new position is: " + str(self.coordinate) + f" [{self.totalDistance}]")
+        print(self)
+
+    def __str__(self):
+        return f"Drone's position is: " + str(self.coordinate) + f" [{self.totalDistance}]"
