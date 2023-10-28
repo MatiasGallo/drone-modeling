@@ -7,11 +7,11 @@ doesn't take up notable space.
 
 ## Planning
 
-1- Create constants
+1. Create constants
     - Commands   : to set valid set of commands
     - Dimensions : to set minimum values for a room/world
 
-2- Create basic models
+2. Create basic models
     - Coordinate: position for drone/obstacles
     - Drone     : main movable object of the simulation
     - Command   : order to move dron
@@ -19,7 +19,7 @@ doesn't take up notable space.
 
     - Test: Creation
 
-3- Create drone moving
+3. Create drone moving
     - Drone
         - Create move method
             - Test: Moving drone
@@ -31,16 +31,16 @@ doesn't take up notable space.
         - Correct course
             - Test: Given an invalid destination, correct course
 
-4- Create user input
+4. Create user input
     - Simple input to assign commands
 
 ## Future Work
 
-1- Create obstacles and out of service areas
+1. Create obstacles and out of service areas
     - Create abstract obstacle and different obstacles
         - Stop before colission
-2- Create out of service(OOS) area
+2. Create out of service(OOS) area
     - Dron should return if ending in one
-3- Adapts OOS and World to implement polygons as shapes instead of rectangles/squares
-4- Adapt Commands to use vectors. 
+3. Adapts OOS and World to implement polygons as shapes instead of rectangles/squares
+4. Adapt Commands to use vectors. 
     Eg: move dron from (0,4,2) to (1,2,7) with vector (1,-2,5)
