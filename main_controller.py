@@ -57,4 +57,6 @@ while nextCommand == 'Y':
 
     
 # Land Drone
-world.landDrone(drone)
+print('=== Volodrone Landing')
+landCommand = Command(orderNumber, Commands.COMMAND_DOWN, drone.coordinate.y - Dimension.MIN_HEIGHT)
+world.moveDron(drone,landCommand)
