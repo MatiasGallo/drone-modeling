@@ -81,6 +81,14 @@ class World:
         else:
             print("CRASH IMMINENT - AUTOMATIC COURSE CORRECTION")
             drone.move(self.validdestination(destination))
+    
+    # Reduce dron height - Check for potencial down
+    def landDrone(self, drone):
+        if not drone.coordinate.y == dimensions.MIN_HEIGHT:
+            print('=== Volodrone Landing')
+            destination = Coordinate(drone.coordinate.x,dimensions.MIN_HEIGHT,drone.coordinate.z)
+
+            drone.move(destination)
 
     def __str__(self):
         return f"World: (x=range({dimensions.MIN_WIDTH}, {self.width}),y=range({dimensions.MIN_HEIGHT}, {self.height}),z=range({dimensions.MIN_DEPTH}, {self.depth}))"

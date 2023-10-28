@@ -57,6 +57,4 @@ while nextCommand == 'Y':
 
     
 # Land Drone
-if not drone.coordinate.y == Dimension.MIN_HEIGHT:
-    print('Landing drone')
-    drone.move(Coordinate(drone.coordinate.x,Dimension.MIN_HEIGHT,drone.coordinate.z))
+world.landDrone(drone)

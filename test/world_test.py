@@ -36,3 +36,9 @@ def test_moving_dron_crash():
     command = Command(1,"UP", 11)
     world.moveDron(drone,command)
     assert (drone.coordinate.y == 10)
+
+def test_land_drone():
+    world = World(10,10,10)
+    drone = Drone(Coordinate(5,5,5))
+    world.landDrone(drone)
+    assert (drone.coordinate.y == 0)
