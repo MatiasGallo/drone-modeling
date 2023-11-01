@@ -13,5 +13,10 @@ class Coordinate:
     def dif (self, coordinate: "Coordinate"):
         return abs(self.x - coordinate.x) + abs(self.y - coordinate.y) + abs(self.z - coordinate.z)
     
+    def mul (self, mult):
+        return Coordinate(self.x * mult,
+                          self.y * mult,
+                          self.z * mult)
+    
     def __str__(self):
         return f"x: {self.x} / y: {self.y} / z: {self.z}"

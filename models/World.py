@@ -6,6 +6,13 @@ from models.Command import Command
 
 class World:
 
+    command_mapping =    {Commands.COMMAND_RIGHT: Coordinate(1,0,0,),
+                          Commands.COMMAND_LEFT: Coordinate(-1,0,0,),
+                          Commands.COMMAND_UP: Coordinate(0,1,0,),
+                          Commands.COMMAND_DOWN: Coordinate(0,-1,0,),
+                          Commands.COMMAND_FORWARD: Coordinate(0,0,1,),
+                          Commands.COMMAND_BACKWARD: Coordinate(0,0,-1,)}
+
     def __init__(self, width, height, depth):
         self.width = width
         self.height = height
@@ -13,20 +20,8 @@ class World:
 
     # Giving a Drone and a command creates the potential destination
     def destinationFromCommand(self, drone: Drone, command: Command) -> Coordinate:
-        if command.direction == Commands.COMMAND_RIGHT:
-            return Coordinate(drone.coordinate.x + command.distance,drone.coordinate.y,drone.coordinate.z)
-        if command.direction == Commands.COMMAND_LEFT:
-            return Coordinate(drone.coordinate.x - command.distance,drone.coordinate.y,drone.coordinate.z)
-        if command.direction == Commands.COMMAND_UP:
-            return Coordinate(drone.coordinate.x,drone.coordinate.y + command.distance,drone.coordinate.z)
-        if command.direction == Commands.COMMAND_DOWN:
-            return Coordinate(drone.coordinate.x,drone.coordinate.y - command.distance,drone.coordinate.z)
-        if command.direction == Commands.COMMAND_FORWARD:
-            return Coordinate(drone.coordinate.x,drone.coordinate.y,drone.coordinate.z + command.distance)
-        if command.direction == Commands.COMMAND_BACKWARD:
-            return Coordinate(drone.coordinate.x,drone.coordinate.y,drone.coordinate.z - command.distance)
-
-        return Coordinate(drone.coordinate.x,drone.coordinate.y,drone.coordinate.z)
+        moventCoordinate = self.command_mapping[command.direction].mul(command.distance)
+        return drone.coordinate.add(moventCoordinate)
 
     # Checks if a command for a drone is out of bounds of the world
     def validMovemtByComand(self, drone: Drone, command: Command):
