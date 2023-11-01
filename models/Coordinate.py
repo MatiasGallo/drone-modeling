@@ -5,12 +5,12 @@ class Coordinate:
         self.y = y
         self.z = z
 
-    def add (self, coordinate):
+    def add (self, coordinate: "Coordinate"):
         return Coordinate(self.x + coordinate.x,
                           self.y + coordinate.y,
                           self.z + coordinate.z)
     
-    def dif (self, coordinate):
+    def dif (self, coordinate: "Coordinate"):
         return abs(self.x - coordinate.x) + abs(self.y - coordinate.y) + abs(self.z - coordinate.z)
     
     def __str__(self):

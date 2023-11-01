@@ -1,6 +1,8 @@
 import constants.dimensions as dimensions
 import constants.commands as Commands
 from models.Coordinate import Coordinate
+from models.Drone import Drone
+from models.Command import Command
 
 class World:
 
@@ -10,7 +12,7 @@ class World:
         self.depth = depth
 
     # Giving a Drone and a command creates the potential destination
-    def destinationFromCommand(self, drone, command):
+    def destinationFromCommand(self, drone: Drone, command: Command) -> Coordinate:
         if command.direction == Commands.COMMAND_RIGHT:
             return Coordinate(drone.coordinate.x + command.distance,drone.coordinate.y,drone.coordinate.z)
         if command.direction == Commands.COMMAND_LEFT:
@@ -27,7 +29,7 @@ class World:
         return Coordinate(drone.coordinate.x,drone.coordinate.y,drone.coordinate.z)
 
     # Checks if a command for a drone is out of bounds of the world
-    def validMovemtByComand(self, drone, command):
+    def validMovemtByComand(self, drone: Drone, command: Command):
         if command.direction == Commands.COMMAND_FORWARD:
             destination = drone.coordinate.z + command.distance
             return destination <= self.width
@@ -53,7 +55,7 @@ class World:
             return destination >= dimensions.MIN_WIDTH
 
     # Corrects destination if out of bounds of the world
-    def validdestination(self,  destination):
+    def validdestination(self,  destination: Coordinate):
         if destination.x > self.width:
             destination.x = self.width
             return destination
@@ -73,7 +75,7 @@ class World:
             destination.z = dimensions.MIN_DEPTH
             return destination
         
-    def moveDron(self, drone, command):
+    def moveDron(self, drone: Drone, command: Command):
         destination = self.destinationFromCommand(drone,command)
 
         if self.validMovemtByComand(drone,command):

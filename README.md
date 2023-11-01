@@ -1,4 +1,4 @@
-# VoloDrone Challenge
+# VoloDrone Challenge - Matias Gallo
 
 The new VoloDrone can be controlled remotely and is optimized for indoor use. It has several sensors and a
 connection to the controller. When the drone boots, its sensors will receive the dimensions of the room as well as the
